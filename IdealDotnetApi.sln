@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealDotnetApi", "IdealDotnetApi\IdealDotnetApi.csproj", "{59BCEFF1-69D6-4C60-8AF4-B46A2DB4B728}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{45DDAC09-AC9C-42D1-BB0C-F7ED5445F1C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{B46B9042-5CEA-40E1-B70F-F7E9EB6E87CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59BCEFF1-69D6-4C60-8AF4-B46A2DB4B728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59BCEFF1-69D6-4C60-8AF4-B46A2DB4B728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59BCEFF1-69D6-4C60-8AF4-B46A2DB4B728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59BCEFF1-69D6-4C60-8AF4-B46A2DB4B728}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45DDAC09-AC9C-42D1-BB0C-F7ED5445F1C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45DDAC09-AC9C-42D1-BB0C-F7ED5445F1C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45DDAC09-AC9C-42D1-BB0C-F7ED5445F1C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45DDAC09-AC9C-42D1-BB0C-F7ED5445F1C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B46B9042-5CEA-40E1-B70F-F7E9EB6E87CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B46B9042-5CEA-40E1-B70F-F7E9EB6E87CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B46B9042-5CEA-40E1-B70F-F7E9EB6E87CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B46B9042-5CEA-40E1-B70F-F7E9EB6E87CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
