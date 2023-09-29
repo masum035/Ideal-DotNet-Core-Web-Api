@@ -1,3 +1,4 @@
+using AspNetCoreRateLimit;
 using IdealDotnetApi.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
 using NLog;
@@ -10,6 +11,10 @@ builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration();
 // For Logging
 builder.Services.ConfigureLoggerService();
+// For Rate limiting
+builder.Services.AddMemoryCache();
+builder.Services.ConfigureRateLimitingOptions(); 
+builder.Services.AddHttpContextAccessor();
 // For Controllers
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -34,6 +39,7 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseForwardedHeaders(new ForwardedHeadersOptions { ForwardedHeaders = ForwardedHeaders.All });
+app.UseIpRateLimiting();
 app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
