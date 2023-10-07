@@ -9,12 +9,17 @@ LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nl
 // Add services to the container.
 builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration();
+// For SQL Database
+builder.Services.ConfigureSqlContext(builder.Configuration);
 // For Logging
 builder.Services.ConfigureLoggerService();
 // For Rate limiting
 builder.Services.AddMemoryCache();
 builder.Services.ConfigureRateLimitingOptions(); 
 builder.Services.AddHttpContextAccessor();
+// For Repository & Service Manager
+builder.Services.ConfigureRepositoryManager();
+builder.Services.ConfigureServiceManager();
 // For Controllers
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -1,6 +1,10 @@
 using AspNetCoreRateLimit;
 using Contracts;
 using LoggerService;
+using Microsoft.EntityFrameworkCore;
+using Repository;
+using Service;
+using Service.Contracts;
 
 namespace IdealDotnetApi.Extensions;
 
@@ -40,4 +44,15 @@ public static class ServiceExtensions
         services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>(); 
         services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
     }
+    
+    public static void ConfigureRepositoryManager(this IServiceCollection services) =>
+        services.AddScoped<IRepositoryManager, RepositoryManager>();
+    
+    public static void ConfigureServiceManager(this IServiceCollection services) =>
+        services.AddScoped<IServiceManager, ServiceManager>();
+    
+    public static void ConfigureSqlContext(this IServiceCollection services,
+        IConfiguration configuration) =>
+        services.AddDbContext<RepositoryContext>(opts =>
+            opts.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
 }
