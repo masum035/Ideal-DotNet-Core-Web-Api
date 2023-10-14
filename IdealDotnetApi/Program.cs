@@ -11,6 +11,8 @@ LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nl
 // Add services to the container.
 builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration();
+// For AutoMapper
+builder.Services.AddAutoMapper(typeof(Program));
 // For SQL Database
 builder.Services.ConfigureSqlContext(builder.Configuration);
 // For Logging
