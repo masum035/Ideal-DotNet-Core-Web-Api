@@ -85,13 +85,13 @@ app.MapWhen(context => context.Request.Query.ContainsKey("testquerystring"),
     });
 
 
-app.Run(async context =>
-{
-    Console.WriteLine($"Execution Order: 2. Writing the response to the client in the Run method");
-    await context.Response.WriteAsync("Hello from the middleware component.");
-});
-
 // any middleware component that we add after the Map method in the pipeline won’t be executed
 app.MapControllers();
+
+// app.Run(async context =>
+// {
+//     Console.WriteLine($"Execution Order: 2. Writing the response to the client in the Run method");
+//     await context.Response.WriteAsync("Hello from the middleware component.");
+// });
 
 app.Run();
