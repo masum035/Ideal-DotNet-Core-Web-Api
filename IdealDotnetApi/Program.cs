@@ -1,4 +1,5 @@
 using AspNetCoreRateLimit;
+using Contracts;
 using IdealDotnetApi.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
 using NLog;
@@ -6,7 +7,6 @@ using NLog;
 var builder = WebApplication.CreateBuilder(args);
 // Adding Logging
 LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
-// Global Exception Handler
 
 // Add services to the container.
 builder.Services.ConfigureCors();
@@ -31,13 +31,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+// Global Exception Handler
+var logger = app.Services.GetRequiredService<ILoggerManager>(); 
+app.ConfigureExceptionHandler(logger);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseDeveloperExceptionPage();
+    // app.UseDeveloperExceptionPage(); // commented for the sake of Global Exception Handling 
 }
 else
 {

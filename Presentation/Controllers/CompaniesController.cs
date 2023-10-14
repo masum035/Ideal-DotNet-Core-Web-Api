@@ -10,15 +10,10 @@ public class CompaniesController : ControllerBase
     private readonly IServiceManager _service; 
     public CompaniesController(IServiceManager service) => _service = service;
     
-    [HttpGet] public IActionResult GetCompanies() {
-        try
-        {
-            var companies = _service.CompanyService.GetAllCompanies(trackChanges: false);
-            return Ok(companies);
-        }
-        catch
-        {
-            return StatusCode(500, "Internal server error");
-        } 
+    [HttpGet] 
+    public IActionResult GetCompanies() {
+        throw new Exception("Exception"); // To test global Exception Handling works or not
+        var companies = _service.CompanyService.GetAllCompanies(trackChanges: false);
+        return Ok(companies);
     }
 }
