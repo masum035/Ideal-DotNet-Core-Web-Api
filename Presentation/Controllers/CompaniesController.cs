@@ -12,8 +12,14 @@ public class CompaniesController : ControllerBase
     
     [HttpGet] 
     public IActionResult GetCompanies() {
-        throw new Exception("Exception"); // To test global Exception Handling works or not
+        // throw new Exception("Exception"); // To test global Exception Handling works or not
         var companies = _service.CompanyService.GetAllCompanies(trackChanges: false);
         return Ok(companies);
+    }
+    
+    [HttpGet("{id:guid}")] 
+    public IActionResult GetCompany(Guid id) { 
+        var company = _service.CompanyService.GetCompany(id, trackChanges: false); 
+        return Ok(company); 
     }
 }
